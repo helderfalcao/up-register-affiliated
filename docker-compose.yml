@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  database: 
+    image: mongo
+    container_name: mongo_up_admin
+    restart: always
+    ports: 
+      - 27017:27017
+    volumes: 
+      - ~/apps/mongo:/data/db
+
+volumes: 
+  pgdata:
+    driver: local
