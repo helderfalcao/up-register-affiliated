@@ -27,10 +27,7 @@ var affiliated = new Schema({
     contactFacebook: String,
     affiliateDate: Date,
     affiliateResponsible: String,
-    affiliatedRecord:  {
-        data: Buffer,
-        contentType: String
-    }
+    affiliatedRecord:  String
 }, {
     strict: false
 });

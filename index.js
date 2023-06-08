@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt')
 AdminBro.registerAdapter(AdminBroMongoose);
 
 // Connect to your MongoDB database
-mongoose.connect('mongodb://localhost:27017/adminbro-app', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://admin:falcaoaranha@cluster0.pzyiw.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Database connected!'))
   .catch(err => console.log(err));
 
@@ -26,11 +26,18 @@ const adminBro = new AdminBro({
     resource: Affiliated,
     options: {
       properties: {
+        _id: {
+          isTitle: true,
+          label: "Nome"
+        },
+        bornDate: {
+          type: "date",
+          "label": "Data de nascimento"
+        },
         name: {
-          label: "Nome completo",
           description: "Descrição nome completo"
         }
-      }   
+      }
     }
   },
   {
@@ -64,12 +71,40 @@ const adminBro = new AdminBro({
     }
   }],
   locale: {
-    language: 'en',
+    language: 'pl',
     translations: {
       labels: {
-        Affiliated: 'Nomes texto',
+        Affiliateds: "Afiliados"
       },
-    },
+      resources: {
+        Affiliateds: {
+          properties: {
+            name: 'Nome completo',
+            electionTitle: 'Titulo de eleição',
+            electionTitleZone: 'Zona',
+            electionTitleSection: 'Seção',
+            electionCity: 'Cidade',
+            electionState: 'Estado',
+            bornDate: 'Data de Nascimento',
+            mothersName: 'Nome da mãe',
+            homeAddress: 'Endereço',
+            homeAddressNumber: 'Nº',
+            homeAddressAdd: 'Detalhes endereço',
+            homeAddressCep: 'CEP',
+            homeAddressCity: 'Cidade',
+            homeAddressState: 'Estado',
+            contactEmail: 'E-mail de contato',
+            contactPhoneFirst: 'Telefone 1',
+            contactPhoneSecond: 'Telefone 2',
+            contactPhoneWhatsapp: 'Whatsapp',
+            contactFacebook: 'Facebook',
+            affiliateDate: 'Data filiação',
+            affiliateResponsible: 'Responsável filiação',
+            affiliatedRecord: 'Ficha filiação'
+          }
+        }
+      }
+    }
   }
 })
 
