@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt')
 AdminBro.registerAdapter(AdminBroMongoose);
 
 // Connect to your MongoDB database
-mongoose.connect('mongodb+srv://admin:falcaoaranha@cluster0.pzyiw.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://admin:123456@cluster0.pzyiw.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Database connected!'))
   .catch(err => console.log(err));
 
